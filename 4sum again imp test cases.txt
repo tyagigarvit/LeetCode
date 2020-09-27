@@ -1,0 +1,10 @@
+class Solution {
+    public int fourSumCount(int[] a, int[] b, int[] c, int[] d) {
+        int n=a.length;
+        HashMap<Integer,Integer> set=new HashMap<>();
+        for(int i=0;i<n;i++) for(int j=0;j<n;j++) set.put(a[i]+b[j],set.getOrDefault(a[i]+b[j],0)+1);
+        int count=0;
+        for(int i=0;i<n;i++) for(int j=0;j<n;j++) if(set.containsKey(-c[i]-d[j])) count+=set.get(-c[i]-d[j]);
+        return count;
+    }
+}
